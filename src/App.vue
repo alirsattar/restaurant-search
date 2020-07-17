@@ -4,15 +4,16 @@
   </div>
 </template>
 
-<script>
-import SearchPage from './components/SearchPage.vue'
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator';
+import SearchPage from './components/SearchPage.vue';
 
-export default {
-  name: 'App',
+@Component({
   components: {
-    SearchPage
-  }
-}
+    SearchPage,
+  },
+})
+export default class App extends Vue {}
 </script>
 
 <style>
