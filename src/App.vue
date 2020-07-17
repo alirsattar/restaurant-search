@@ -4,8 +4,8 @@
     <app-header/>
 
     <!-- SEARCH VIEW -->
-    <search-page
-      msg="TESTING 2"/>
+    <search-view
+      msg="TESTING"/>
   </div>
 </template>
 
@@ -13,12 +13,12 @@
 import { Component, Vue } from 'vue-property-decorator';
 
 import AppHeader from './components/AppHeader/AppHeader.vue';
-import SearchPage from './components/SearchPage.vue';
+import SearchView from './components/SearchView/SearchView.vue';
 
 @Component({
   components: {
     AppHeader,
-    SearchPage
+    SearchView
   },
 })
 export default class App extends Vue {}

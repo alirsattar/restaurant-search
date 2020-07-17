@@ -1,13 +1,14 @@
 <template>
   <div id="content">
-    <h1>{{ msg }}</h1>
+    <h1>SearchView</h1>
+    <h2>msg in SearchView: {{ msg }}</h2>
   </div>
 </template>
 
 <script>
 
 export default {
-  name: 'SearchPage',
+  name: 'SearchView',
   props: {
     msg: String
   },

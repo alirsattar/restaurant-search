@@ -1,10 +1,10 @@
 <template>
-  <h1>AppHeader</h1>
+  <h1>SearchResultsPaginator</h1>
 </template>
 
 <script>
 export default {
-  name: 'AppHeader',
+  name: 'SearchResultsPaginator',
   props: {
     
   },
