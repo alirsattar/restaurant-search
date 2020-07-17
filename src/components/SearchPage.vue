@@ -5,10 +5,17 @@
 </template>
 
 <script>
+
 export default {
   name: 'SearchPage',
   props: {
     msg: String
+  },
+  components: {
+    // SearchBox,
+    // SearchResults,
+    // AppPaginator,
+    // AppMap
   }
 }
 </script>

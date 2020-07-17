@@ -1,16 +1,24 @@
 <template>
   <div id="app">
-    <search-page msg="TESTING"/>
+    <!-- GENERAL APP HEADER -->
+    <app-header/>
+
+    <!-- SEARCH VIEW -->
+    <search-page
+      msg="TESTING 2"/>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
+
+import AppHeader from './components/AppHeader/AppHeader.vue';
 import SearchPage from './components/SearchPage.vue';
 
 @Component({
   components: {
-    SearchPage,
+    AppHeader,
+    SearchPage
   },
 })
 export default class App extends Vue {}
