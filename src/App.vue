@@ -1,6 +1,7 @@
 <template>
-  <div id="app">
-    <div class="container">
+  <div id="app" >
+    <!-- OVERALL PAGE CONTAINER -->
+    <div class="container-fluid">
       <!-- GENERAL APP HEADER -->
       <app-header />
 
@@ -25,12 +26,14 @@ import SearchView from "./components/SearchView/SearchView.vue";
 export default class App extends Vue {}
 </script>
 
-<style>
+<style scoped>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
+  border: 1px solid;
+  padding: 10px;
+  margin-top: 0px;
 }
 </style>
