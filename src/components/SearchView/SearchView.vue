@@ -1,24 +1,29 @@
 <template>
   <div id="content">
-    <h1>SearchView</h1>
+    <h1>
+      <span class="badge badge-success">SearchView</span>
+    </h1>
     <h2>msg in SearchView: {{ msg }}</h2>
+
+    <!-- SEARCH INPUT BOX -->
+    <search-input-box></search-input-box>
+
+    <!-- SEARCH RESULTS CONTAINER -->
   </div>
 </template>
 
 <script>
+import SearchInputBox from './SearchInputBox/SearchInputBox.vue';
 
 export default {
-  name: 'SearchView',
+  name: "SearchView",
   props: {
     msg: String
   },
   components: {
-    // SearchBox,
-    // SearchResults,
-    // AppPaginator,
-    // AppMap
+    SearchInputBox
   }
-}
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

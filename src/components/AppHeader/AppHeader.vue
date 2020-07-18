@@ -1,5 +1,7 @@
 <template>
-  <h1>AppHeader</h1>
+  <h1>
+    <span class="badge badge-success">AppHeader</span>
+  </h1>
 </template>
 
 <script>

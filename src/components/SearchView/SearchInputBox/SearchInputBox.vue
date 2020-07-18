@@ -1,10 +1,10 @@
 <template>
-  <h1>SEARCHBOX</h1>
+  <h1>SearchInputBox</h1>
 </template>
 
 <script>
 export default {
-  name: 'SearchBox',
+  name: 'SearchInputBox',
   props: {
     
   },

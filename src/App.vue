@@ -1,25 +1,26 @@
 <template>
   <div id="app">
-    <!-- GENERAL APP HEADER -->
-    <app-header/>
+    <div class="container">
+      <!-- GENERAL APP HEADER -->
+      <app-header />
 
-    <!-- SEARCH VIEW -->
-    <search-view
-      msg="TESTING"/>
+      <!-- SEARCH VIEW -->
+      <search-view msg="TESTING" />
+    </div>
   </div>
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
+import { Component, Vue } from "vue-property-decorator";
 
-import AppHeader from './components/AppHeader/AppHeader.vue';
-import SearchView from './components/SearchView/SearchView.vue';
+import AppHeader from "./components/AppHeader/AppHeader.vue";
+import SearchView from "./components/SearchView/SearchView.vue";
 
 @Component({
   components: {
     AppHeader,
     SearchView
-  },
+  }
 })
 export default class App extends Vue {}
 </script>
@@ -31,6 +32,5 @@ export default class App extends Vue {}
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
