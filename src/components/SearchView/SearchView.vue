@@ -8,14 +8,16 @@
     <div class="row">
       <!-- SEARCH INPUT BOX -->
       <div class="col-12">
-        <search-input-box></search-input-box>
+        <search-input-box
+          @gotSearchResults="onSearchResults" />
       </div>
     </div>
 
     <div class="row">
       <div class="col-8">
         <!-- SEARCH RESULT LIST CONTAINER -->
-        <search-result-list></search-result-list>
+        <search-result-list
+          v-bind:results="this.$data.searchResults" />
       </div>
 
       <div class="col-4">
@@ -36,10 +38,20 @@ export default {
   props: {
     msg: String
   },
+  data: ()=> {
+    return {
+      searchResults: []
+    }
+  },
   components: {
     SearchInputBox,
     SearchResultList,
     SearchResultMap
+  },
+  methods: {
+    onSearchResults: function (searchResults) {
+      this.$data.searchResults = searchResults;
+    }
   }
 };
 </script>
