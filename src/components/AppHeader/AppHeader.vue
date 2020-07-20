@@ -1,8 +1,33 @@
 <template>
-  <div id="appheader" class="row">
-    <!-- <h1>
-      <span class="badge badge-success">AppHeader</span>
-    </h1> -->
+  <div id="appheader">
+    <div id="header-container" class="container-fluid">
+      <div class="row">
+
+        <!-- LEFT SIDE -->
+        <div class="col-6">
+          <img
+            id="banner"
+            src="images/hungrytime_banner.jpg"
+            class="float-left">
+        </div>
+
+        <!-- RIGHT SIDE -->
+        <div class="col-6">
+          <ul id="nav-ul" class="list-group list-group-horizontal float-right">
+            <li class="my-auto mr-3"><a><strong>My Dashboard</strong></a></li>
+            <li class="my-auto mr-3"><strong><a>Search</a></strong></li>
+            <li class="my-auto mr-3"><i class="fas fa-bell"></i></li>
+            <li class="my-auto"><img src="images/hungrytime_usericon.png" alt=""></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!-- MESSAGE BANNER -->
+    <div class="row">
+      <div class="col-12">
+        <h6 id="message-banner" class="">Enjoy our discounts! Create an account <a href="">here</a></h6>
+      </div>
+    </div>  
   </div>
 </template>
 
@@ -15,9 +40,36 @@ export default {
 </script>
 
 <style scoped>
-#appheader {
-  border: 1px solid;
-  padding: 10px;
-  margin: 0px 10px 10px 10px;
-}
+  #appheader {
+    padding: 0px;
+    margin: 0px;
+    margin: 0px;
+    background-color: #ffffff;
+    height: fit-content;
+    width: 100%;
+  }
+
+  #nav-ul {
+    list-style-type: none;
+  }
+
+  li {
+    float: left;
+  }
+
+  #header-container {
+    padding: 0vw 5vw;
+  }
+
+  #banner {
+    max-height: 5rem;
+  }
+
+  #message-banner {
+    text-align: center;
+    background-color: #cceff7;
+    width: 100vw;
+    padding: 10px 0px;
+    margin-bottom: 0px;
+  }
 </style>
