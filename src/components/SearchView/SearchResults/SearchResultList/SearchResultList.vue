@@ -5,17 +5,13 @@
     </h1>
 
     <!-- SEARCH RESULT CARDS -->
+    TOTAL RESULTS: {{ this.$props.totalResults }} | PER PAGE: {{ this.$props.perPage }} | CURRENT PAGE: {{ this.$props.currentPage }}
     <div
       v-for="result in this.$props.results"
       v-bind:key="result.name">
         <search-result-list-card
           v-bind:theResult="result" />
     </div>
-    <!-- <search-result-list-card
-      class="row"
-      v-for="result in this.$props.results"
-      v-bind:key="result.id"
-      v-bind:theResult="result" /> -->
 
     <!-- PAGINATOR -->
     <search-result-list-paginator></search-result-list-paginator>
@@ -29,7 +25,10 @@ import SearchResultListCard from './SearchResultListCard/SearchResultListCard';
 export default {
   name: "SearchResultList",
   props: {
-    results: Array
+    results: Array,
+    totalResults: Number,
+    perPage: Number,
+    currentPage: Number
   },
   components: {
     SearchResultListPaginator,

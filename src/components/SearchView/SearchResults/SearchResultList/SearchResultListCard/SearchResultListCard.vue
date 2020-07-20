@@ -7,8 +7,10 @@
     <br>Name: {{ theResult.name }}
     <br>Distance:
     <br>Address: {{ theResult.address }}
+    <br>Area: {{ theResult.area }}
     <br>City: {{ theResult.city }}
     <br>State: {{ theResult.state }}
+    <br>Zip: {{ theResult.postal_code }}
     <br>Price: {{ theResult.price }}
     <br>Stars: {{  }}
     <br>Reservation Number: {{ theResult.phone }}
@@ -24,9 +26,6 @@ export default {
       type: Object,
       required: true
     }
-  },
-  mounted: function () {
-    console.log( this.$props.theResult );
   }
 };
 </script>

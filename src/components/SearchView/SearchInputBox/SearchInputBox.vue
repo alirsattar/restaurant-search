@@ -44,18 +44,12 @@
         v-on:click="onSearch($event)">Search</button>
       <br><small id="error">{{ this.$data.errorMessage }}</small>
     </form>
-
-    <div
-      id="resultcount"
-      v-show="this.$data.resultCount">
-      {{ this.$data.resultCount }} Results
-    </div>
     
   </div>
 </template>
 
 <script>
-const axios = require("axios");
+// const axios = require("axios");
 
 export default {
   name: "SearchInputBox",
@@ -89,6 +83,7 @@ export default {
       errorMessage: '',
       resultCount: 0,
       usStates: {
+        "": "None",
         "AL": "Alabama",
         "AK": "Alaska",
         "AZ": "Arizona",
@@ -147,30 +142,13 @@ export default {
     onSearch: function(buttonEvent) {
       buttonEvent.preventDefault();
 
-      // const whichField = this.whichInputFieldToUse();
-
       // TODO: Function to figure out which input field's string will be appended to URL
       const whichField = this.whichInputFieldToUse();
       const urlWithQuery = this.buildFinalQueryUrl(whichField);
 
-      // const urlWithQuery = this.$data.searchApiBaseUrl + this.$data.searchString;
-
       console.log({ urlWithQuery });
 
-      axios.get(urlWithQuery)
-        .then((searchResults) => {
-          const restaurantResults = searchResults.data.restaurants;
-          const totalResults = searchResults.data.total_entries;
-
-          console.log({ restaurantResults, totalResults });
-
-          this.$data.resultCount = totalResults;
-          this.$emit('gotSearchResults', restaurantResults);
-        })
-        .catch((error)=> {
-          console.error(error);
-          this.$data.errorMessage = error;
-        });
+      this.$emit('gotSearchQuery', urlWithQuery);
     },
     clearOtherInputFields: function(focusEvent) {
       focusEvent.preventDefault();
