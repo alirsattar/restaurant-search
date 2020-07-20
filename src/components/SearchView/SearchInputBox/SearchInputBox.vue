@@ -1,8 +1,8 @@
 <template>
   <div id="searchinputbox">
-    <h1>
+    <!-- <h1>
       <span class="badge badge-success">SearchInputBox</span>
-    </h1>
+    </h1> -->
 
     <form>
       <input

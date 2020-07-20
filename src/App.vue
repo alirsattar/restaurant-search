@@ -26,7 +26,11 @@ import SearchView from "./components/SearchView/SearchView.vue";
 export default class App extends Vue {}
 </script>
 
-<style scoped>
+<style>
+body {
+  background-color: #f7f7f7;
+}
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

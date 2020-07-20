@@ -1,20 +1,28 @@
 <template>
   <div class="searchresultlistcard col-12">
-    <h4>
-      <span class="badge badge-success">SearchResultListCard</span>
-    </h4>
-    <br>Image: <img class="restaurant-image" :src="theResult.image_url" alt="">
-    <br>Name: {{ theResult.name }}
-    <br>Distance:
-    <br>Address: {{ theResult.address }}
-    <br>Area: {{ theResult.area }}
-    <br>City: {{ theResult.city }}
-    <br>State: {{ theResult.state }}
-    <br>Zip: {{ theResult.postal_code }}
-    <br>Price: {{ theResult.price }}
-    <br>Stars: {{  }}
-    <br>Reservation Number: {{ theResult.phone }}
-    <br>Website: {{ theResult.reserve_url }}
+    <div class="row">
+      <div class="col-5">
+        <div class="row">
+          <div class="col-4">
+            <img class="restaurant-image img-fluid" src="images/hungrytime_icon.jpg" alt="">
+          </div>
+          <div class="col-8">
+            {{ theResult.name }}
+            <br>Distance: | {{ theResult.address }}
+            <br>Price: {{ theResult.price }}
+          </div>
+        </div>
+      </div>
+      <div class="col-2">
+      </div>
+      <div
+        id="actions"
+        class="col-5 ">
+          <span class="">Make a Reservation</span>
+          <br><button class="reservation-button btn btn-info "> {{ formatPhone(theResult.phone) }}</button>
+          <br><a :href="theResult.reserve_url" target="_blank">See website</a> | <i class="fa fa-heart"></i> Save
+      </div>
+    </div>
   </div>
 </template>
 
@@ -26,19 +34,37 @@ export default {
       type: Object,
       required: true
     }
+  },
+  methods: {
+    formatPhone: (numberString)=> {
+      const cleaned = ('' + numberString).replace(/\D/g, '')
+      const match = cleaned.match(/^(\d{3})(\d{3})(\d{4})$/)
+      if (match) {
+        return '(' + match[1] + ') ' + match[2] + '-' + match[3]
+      }
+      return null;
+    }
   }
 };
 </script>
 
 <style>
-.searchresultlistcard {
-  max-width: -webkit-fill-available;
-  border: 1px solid;
-  padding: 10px;
-  margin: 0px 10px 10px 10px;
-}
+  .searchresultlistcard {
+    max-width: -webkit-fill-available;
+    border: 1px solid;
+    padding: 10px;
+    margin: 0px 10px 10px 10px;
+  }
 
-.restaurant-image {
-  max-height: 100px;
-}
+  .restaurant-image {
+    min-width: 100%;
+  }
+
+  .reservation-button {
+    width: 100%;
+  }
+
+  #actions {
+    text-align: center;
+  }
 </style>

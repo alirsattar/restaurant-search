@@ -1,8 +1,8 @@
 <template>
   <div id="searchview">
-    <h1>
+    <!-- <h1>
       <span class="badge badge-success">SearchView</span>
-    </h1>
+    </h1> -->
 
     <div class="row">
       <!-- SEARCH INPUT BOX -->
@@ -14,25 +14,32 @@
 
     <div class="row">
       <div class="col-12">
-
         <div
           id="resultfilters"
           class="">
-          <select id="rating"></select>
+          <select id="rating">
+            <option value="rating" disabled selected>Rating</option>
+          </select>
           <select id="price">
+            <option value="" disabled selected>Price</option>
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
             <option value="4">4</option>
           </select>
-          <select id="distance"></select>
+          <select id="distance">
+            <option value="" disabled selected>Distance</option>
+            <option value="10">10 miles</option>
+            <option value="25">20 miles</option>
+            <option value="50">50 miles</option>
+          </select>
         </div>
 
         <div
           id="resultcount"
           class="float-right"
-          v-show="this.$data.searchResults.totalResults">
-            {{ this.$data.searchResults.totalResults }} Results
+          v-show="this.$data.totalEntries">
+            {{ this.$data.totalEntries }} Results
         </div>
       </div>
     </div>
@@ -49,7 +56,8 @@
 
       <div class="col-4">
         <!-- SEARCH RESULT MAP -->
-        <search-result-map></search-result-map>
+        <search-result-map
+          v-bind:locations="this.$data.searchResults" />
       </div>
     </div>
   </div>

@@ -1,8 +1,8 @@
 <template>
   <div id="searchresultlist">
-    <h1>
+    <!-- <h1>
       <span class="badge badge-success">SearchResultList</span>
-    </h1>
+    </h1> -->
 
     <!-- SEARCH RESULT CARDS -->
     TOTAL RESULTS: {{ this.$props.totalResults }} | PER PAGE: {{ this.$props.perPage }} | CURRENT PAGE: {{ this.$props.currentPage }}
@@ -25,10 +25,10 @@ import SearchResultListCard from './SearchResultListCard/SearchResultListCard';
 export default {
   name: "SearchResultList",
   props: {
-    results: Array,
+    results:      Array,
     totalResults: Number,
-    perPage: Number,
-    currentPage: Number
+    perPage:      Number,
+    currentPage:  Number
   },
   components: {
     SearchResultListPaginator,
