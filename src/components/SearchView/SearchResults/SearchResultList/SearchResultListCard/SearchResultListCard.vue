@@ -3,16 +3,16 @@
     <div class="row">
 
       <!-- RIGHT SIDE -->
-      <div class="col-6">
+      <div class="col-6 col-sm-12 col-md-12 col-lg-6">
         <div class="row">
 
           <!-- IMAGE CONTAINER -->
-          <div class="col-2">
+          <div class="col-2 col-sm-12">
             <img class="restaurant-image img-fluid" src="images/hungrytime_icon.jpg" alt="">
           </div>
 
           <!-- RESTAURANT INFO -->
-          <div class="col-10">
+          <div class="col-10 col-sm-12">
             <h4 class="text"><strong>{{ theResult.name }}</strong></h4>
             <h6 class="brown"><strong>Restaurant Type</strong></h6>
             <h5><i class="fas fa-map-marker-alt highlighted"></i> <span class="text">0.68 mi | {{ theResult.address }}</span></h5>
@@ -32,14 +32,14 @@
       </div>
 
       <!-- MIDDLE -->
-      <div class="col-3">
+      <div class="col-sm-12 col-md-12 col-lg-3">
         <img src="images/hungrytime_stars.png" alt="">
       </div>
 
       <!-- RIGHT SIDE -->
       <div
         id="actions"
-        class="col-3">
+        class="col-sm-12 col-md-12 col-lg-3">
           <h5 class="text">Make a Reservation</h5>
           <button class="reservation-button btn btn-info blue"><i class="fas fa-phone-alt mr-2"></i>{{ formatPhone(theResult.phone) }}</button>
           <h5 class="mt-3">
