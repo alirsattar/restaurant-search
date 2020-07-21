@@ -23,11 +23,10 @@ export default {
 
       const mapConfig = {
         mapContainerDivId: 'map',
-        mapboxStyleString: 'mapbox://styles/mapbox/light-v10',
-        mapboxIconName: "town-hall-15",
+        mapboxStyleString: 'mapbox://styles/mapbox/streets-v11',
+        mapboxIconName: "fast-food-15",
         accessToken: "pk.eyJ1IjoiYWxpcnNhdHRhciIsImEiOiJja2N1dHd5d3EwMGt3MnlwYmUxNHltcDAzIn0.cxS0uUsukIYZeZ_PQOdX6A",
         staticMarkerFilePath: "some_url",
-        // mapCenter: [-80.1815, 26.8065],
         zoomLevel: 2,
         clustering: false,
         popupHtml: (siteInfo)=>{
@@ -161,8 +160,6 @@ export default {
 
         const highestLongitude = markersSortedByGreatestLongitude[0];
         const highestLatitude = markersSortedByGreatestLatitude[0];
-
-        console.log({ markersSortedByGreatestLongitude, markersSortedByGreatestLatitude, highestLongitude, highestLatitude });
         
         map.fitBounds([
           [Number(highestLatitude.location[0]), Number(highestLatitude.location[1])],

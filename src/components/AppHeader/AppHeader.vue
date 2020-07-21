@@ -22,10 +22,13 @@
         </div>
       </div>
     </div>
+
     <!-- MESSAGE BANNER -->
     <div class="row">
       <div class="col-12">
-        <h6 id="message-banner" class="">Enjoy our discounts! Create an account <a href="">here</a></h6>
+        <div id="banner-container">
+          <h6 id="message-banner" class="">Enjoy our discounts! Create an account <a href="">here</a></h6>
+        </div>
       </div>
     </div>  
   </div>
@@ -65,9 +68,14 @@ export default {
     max-height: 5rem;
   }
 
-  #message-banner {
+  #banner-container {
+    display: flex;
     text-align: center;
     background-color: #cceff7;
+  }
+
+  #message-banner {
+    text-align: center;
     width: 100vw;
     padding: 10px 0px;
     margin-bottom: 0px;

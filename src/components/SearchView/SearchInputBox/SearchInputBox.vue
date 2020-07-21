@@ -1,51 +1,74 @@
 <template>
-  <div id="searchinputbox">
-    <!-- <h1>
-      <span class="badge badge-success">SearchInputBox</span>
-    </h1> -->
+  <form id="formcontainer">
+    <div id="searchinputbox">
+      <div id="inputfieldscontainer" class="row d-flex">
+          <div class="col-10">
+            <div class="row">
 
-    <form>
-      <input
-        type="text"
-        id="name"
-        placeholder="Restaurant Name"
-        v-model="searchTypes.name.queryString"
-        v-on:focus="clearOtherInputFields($event)" />
-      <input
-        type="text"
-        id="city"
-        placeholder="City"
-        v-model="searchTypes.city.queryString"
-        v-on:focus="clearOtherInputFields($event)" />
-      <select
-        class="select"
-        id="state"
-        placeholder="State"
-        v-model="searchTypes.state.queryString"
-        v-on:focus="clearOtherInputFields($event)">
-          <option
-            v-for="(code, state) in usStates"
-            v-bind:key="state"
-            :value="state">{{ code }}</option>
-      </select>
-      <span class="m-3">OR</span>
-      <input
-        type="text"
-        id="zip"
-        class=""
-        maxlength="5"
-        placeholder="Zip Code"
-        pattern="[0-9]*"
-        v-model="searchTypes.zip.queryString"
-        v-on:focus="clearOtherInputFields($event)" />
-      <button
-        type="submit"
-        class="btn btn-success ml-3"
-        v-on:click="onSearch($event)">Search</button>
-      <br><small id="error">{{ this.$data.errorMessage }}</small>
-    </form>
-    
-  </div>
+              <!-- NAME INPUT -->
+              <div class="col-3 d-flex inputcontainer">
+                <i class="fas fa-home mr-2 blue"></i>
+                <input
+                  type="text"
+                  id="name"
+                  placeholder="Restaurant Name"
+                  v-model="searchTypes.name.queryString" />
+              </div>
+
+              <!-- CITY INPUT -->
+              <div class="col-3 d-flex inputcontainer">
+                <i class="fas fa-city mr-2 blue"></i>
+                <input
+                  type="text"
+                  id="city"
+                  placeholder="City"
+                  v-model="searchTypes.city.queryString" />
+              </div>
+
+              <!-- STATE INPUT -->
+              <div class="col-3 d-flex inputcontainer">
+                <i class="fas fa-map mr-2 blue"></i>
+                <select
+                  class="select"
+                  id="state"
+                  placeholder="State"
+                  v-model="searchTypes.state.queryString">
+                    <option
+                      v-for="(code, state) in usStates"
+                      v-bind:key="state"
+                      :value="state">{{ code }}</option>
+                </select>
+              </div>
+
+              <!-- ZIP INPUT -->
+              <div class="col-3 d-flex inputcontainer">
+                <i class="fas fa-map-marker-alt mr-2 blue"></i>
+                <input
+                  type="text"
+                  id="zip"
+                  class=""
+                  maxlength="5"
+                  placeholder="Zip Code"
+                  pattern="[0-9]*"
+                  v-model="searchTypes.zip.queryString" />
+              </div>
+            </div>
+          </div>
+
+          <!-- SEARCH BUTTON -->
+          <div class="col-2">
+            <button
+              id="searchbutton"
+              type="submit"
+              class="btn btn-info ml-3"
+              v-on:click="onSearch($event)">
+                <i class="fas fa-search"></i> Search
+            </button>
+          </div>
+          <br><small id="error">{{ this.$data.errorMessage }}</small>
+      </div>
+    </div>
+  </form>
 </template>
 
 <script>
@@ -83,7 +106,7 @@ export default {
       errorMessage: '',
       resultCount: 0,
       usStates: {
-        "": "None",
+        "": "State",
         "AL": "Alabama",
         "AK": "Alaska",
         "AZ": "Arizona",
@@ -203,13 +226,40 @@ export default {
 </script>
 
 <style scoped>
-#searchinputbox {
-  border: 1px solid;
-  padding: 10px;
-  margin: 10px;
-}
+  #searchinputbox {
+    padding: 10px;
+    margin: 50px 10px 10px 10px;
+  }
 
-#error {
-  color: red;
-}
+  #inputfieldscontainer {
+    border-radius: 2px;
+    background-color: white;
+    align-items: center;
+    box-shadow: 0px 1px 3px #888888;
+  }
+
+  .inputcontainer {
+    align-items: center;
+    align-self: center;
+  }
+
+  #error {
+    color: red;
+  }
+
+  input, select {
+    border: none;
+    border-bottom: 1px solid #e6e6e6;
+  }
+
+  #searchbutton {
+    width: 100%;
+    border-radius: 2px;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+  }
+
+  .blue {
+    color: #1090b4
+  }
 </style>
