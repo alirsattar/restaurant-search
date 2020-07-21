@@ -3,7 +3,7 @@
     <div id="search-container" class="container-fluid">
       <div class="row">
         <!-- SEARCH INPUT BOX -->
-        <div class="col-12">
+        <div class="col-12 pr-0">
           <search-input-box
             @gotSearchQuery="onSearchQuery" />
         </div>

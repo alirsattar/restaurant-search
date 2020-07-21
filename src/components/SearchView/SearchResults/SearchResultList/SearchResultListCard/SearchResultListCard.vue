@@ -42,7 +42,9 @@
         class="col-3">
           <h5 class="text">Make a Reservation</h5>
           <button class="reservation-button btn btn-info blue"><i class="fas fa-phone-alt mr-2"></i>{{ formatPhone(theResult.phone) }}</button>
-          <br><a :href="theResult.reserve_url" target="_blank">See website</a> | <i class="fa fa-heart"></i> Save
+          <h5 class="mt-3">
+            <a :href="theResult.reserve_url" target="_blank">See website</a> | <i class="far fa-heart text-danger"></i> Save
+          </h5>
       </div>
     </div>
   </div>
@@ -127,5 +129,12 @@ export default {
   .dollarsign {
     display: inline;
     font-weight: lighter;
+  }
+
+  a {
+    color: #7e7f7e;
+    text-decoration-line: underline;
+    -moz-text-decoration-line: underline;
+    font-weight: 300;
   }
 </style>
