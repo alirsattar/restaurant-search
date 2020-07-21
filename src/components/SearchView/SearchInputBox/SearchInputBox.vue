@@ -2,7 +2,7 @@
   <form id="formcontainer">
     <div id="searchinputbox">
       <div id="inputfieldscontainer" class="row d-flex">
-          <div class="col-10">
+          <div class="col-sm-12 col-md-10 col-lg-10">
             <div class="row">
 
               <!-- NAME INPUT -->

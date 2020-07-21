@@ -7,12 +7,12 @@
         <div class="row">
 
           <!-- IMAGE CONTAINER -->
-          <div class="col-sm-12 col-md-6 col-lg-2">
+          <div class="col-sm-12 col-md-3 col-lg-2">
             <img class="restaurant-image img-fluid" src="images/hungrytime_icon.jpg" alt="">
           </div>
 
           <!-- RESTAURANT INFO -->
-          <div class="col-sm-12 col-md-6 col-lg-10">
+          <div class="col-sm-12 col-md-9 col-lg-10">
             <h4 class="text"><strong>{{ theResult.name }}</strong></h4>
             <h6 class="brown"><strong>Restaurant Type</strong></h6>
             <h5><i class="fas fa-map-marker-alt highlighted"></i> <span class="text">0.68 mi | {{ theResult.address }}</span></h5>
