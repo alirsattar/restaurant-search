@@ -10,6 +10,8 @@
       </div>
 
       <!-- RESULTS FILTERS -->
+
+      <!-- SORRY, DID NOT HAVE TIME TO COME BACK AND STYLE THESE PROPERLY ! -->
       <div class="row">
         <div class="col-12">
           <div
@@ -37,7 +39,7 @@
             id="resultcount"
             class="float-right"
             v-show="this.$data.totalEntries">
-              {{ this.$data.totalEntries }} Results
+              <h5>{{ this.$data.totalEntries }} Results</h5>
           </div>
         </div>
       </div>
@@ -45,6 +47,13 @@
       <!-- RESULT CARDS CONTAINER -->
       <div class="row">
         <div class="col-sm-12 col-md-6 col-lg-8">
+
+          <!-- DISPLAY MESSAGE ONLY IF NOT SEARCH RESULTS -->
+          <template
+            v-if="!this.$data.searchResults.length">
+              <h2 class="mt-3">Search above by restaurant name, city, state, or Zip code</h2>
+          </template>
+
           <!-- SEARCH RESULT LIST CONTAINER -->
           <search-result-list
             v-bind:results="this.$data.searchResults"
@@ -121,7 +130,6 @@ export default {
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
   #searchview {
     padding: 0px;

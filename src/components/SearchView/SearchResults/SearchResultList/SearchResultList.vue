@@ -1,7 +1,5 @@
 <template>
-  <div id="searchresultlist">
-    <!-- TOTAL RESULTS: {{ this.$props.totalResults }} | PER PAGE: {{ this.$props.perPage }} | CURRENT PAGE: {{ this.$props.currentPage }} -->
-    
+  <div id="searchresultlist">    
     <!-- SEARCH RESULT CARDS -->
     <div id="results-cards-container">
       <div
@@ -23,43 +21,38 @@
 </template>
 
 <script>
-import SearchResultListPaginator from "./SearchResultListPaginator/SearchResultListPaginator";
-import SearchResultListCard from './SearchResultListCard/SearchResultListCard';
+  import SearchResultListPaginator from "./SearchResultListPaginator/SearchResultListPaginator";
+  import SearchResultListCard from './SearchResultListCard/SearchResultListCard';
 
-export default {
-  name: "SearchResultList",
-  props: {
-    results:      Array,
-    totalResults: Number,
-    perPage:      Number,
-    currentPage:  Number
-  },
-  components: {
-    SearchResultListPaginator,
-    SearchResultListCard
-  },
-  methods: {
-    goToPage: function(pageNum) {
-      this.$emit('goToPage', pageNum);
+  export default {
+    name: "SearchResultList",
+    props: {
+      results:      Array,
+      totalResults: Number,
+      perPage:      Number,
+      currentPage:  Number
+    },
+    components: {
+      SearchResultListPaginator,
+      SearchResultListCard
+    },
+    methods: {
+      goToPage: function(pageNum) {
+        this.$emit('goToPage', pageNum);
+      }
     }
-  }
-};
+  };
 </script>
 
 <style scoped>
-#searchresultlist {
-  /* padding: 10px; */
-  /* margin: 0px 10px 10px 10px; */
-}
+  #results-cards-container {
+    max-height: 50vh;
+    overflow: auto;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
 
-#results-cards-container {
-  max-height: 50vh;
-  overflow: auto;
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
-}
-
-#results-cards-container::-webkit-scrollbar {
-  display: none;
-}
+  #results-cards-container::-webkit-scrollbar {
+    display: none;
+  }
 </style>

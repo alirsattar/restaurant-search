@@ -7,12 +7,12 @@
         <div class="row">
 
           <!-- IMAGE CONTAINER -->
-          <div class="col-sm-12 col-md-3 col-lg-2">
+          <div class="col-sm-12 col-md-12 col-lg-3">
             <img class="restaurant-image img-fluid" src="images/hungrytime_icon.jpg" alt="">
           </div>
 
           <!-- RESTAURANT INFO -->
-          <div class="col-sm-12 col-md-9 col-lg-10">
+          <div class="col-sm-12 col-md-12 col-lg-9">
             <h4 class="text"><strong>{{ theResult.name }}</strong></h4>
             <h6 class="brown"><strong>Restaurant Type</strong></h6>
             <h5><i class="fas fa-map-marker-alt highlighted"></i> <span class="text">0.68 mi | {{ theResult.address }}</span></h5>
@@ -26,7 +26,6 @@
                   class="fas fa-dollar-sign"></i>
                 </h3>
             </template>
-            {{ theResult.price }}
           </div>
         </div>
       </div>
@@ -51,28 +50,28 @@
 </template>
 
 <script>
-export default {
-  name: "SearchResultListCard",
-  props: {
-    theResult: {
-      type: Object,
-      required: true
-    }
-  },
-  methods: {
-    formatPhone: (numberString)=> {
-      const cleaned = ('' + numberString).replace(/\D/g, '')
-      const match = cleaned.match(/^(\d{3})(\d{3})(\d{4})$/)
-      if (match) {
-        return '(' + match[1] + ') ' + match[2] + '-' + match[3]
+  export default {
+    name: "SearchResultListCard",
+    props: {
+      theResult: {
+        type: Object,
+        required: true
       }
-      return null;
     },
-    isHighlighted: function(index) {
-      return (index <= this.$props.theResult.price ? true : false);
+    methods: {
+      formatPhone: (numberString)=> {
+        const cleaned = ('' + numberString).replace(/\D/g, '')
+        const match = cleaned.match(/^(\d{3})(\d{3})(\d{4})$/)
+        if (match) {
+          return '(' + match[1] + ') ' + match[2] + '-' + match[3]
+        }
+        return null;
+      },
+      isHighlighted: function(index) {
+        return (index <= this.$props.theResult.price ? true : false);
+      }
     }
-  }
-};
+  };
 </script>
 
 <style scoped>
@@ -88,8 +87,7 @@ export default {
   }
 
   .restaurant-image {
-    /* min-width: 100%; */
-    /* max-height: 50%; */
+    min-height: 50%;
   }
 
   .reservation-button {
@@ -106,10 +104,6 @@ export default {
 
   h4.text {
     margin-bottom: 0px;
-  }
-
-  h5.text {
-    /* margin-bottom: 0px; */
   }
 
   .brown {
