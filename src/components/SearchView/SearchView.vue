@@ -48,7 +48,8 @@
             v-bind:results="this.$data.searchResults"
             v-bind:totalResults="this.$data.totalEntries"
             v-bind:perPage="this.$data.perPage"
-            v-bind:currentPage="this.$data.currentPage" />
+            v-bind:currentPage="this.$data.currentPage"
+            @goToPage="goToPage" />
         </div>
 
         <div class="col-4">
@@ -57,7 +58,7 @@
             v-bind:locations="this.$data.searchResults" />
         </div>
       </div>
-      
+
     </div>
   </div>
 </template>
@@ -76,7 +77,8 @@ export default {
       searchResults: [],
       perPage: 0,
       currentPage: 0,
-      totalEntries: 0
+      totalEntries: 0,
+      currentQuery: ''
     }
   },
   components: {
@@ -88,8 +90,10 @@ export default {
     onSearchResults: function (searchResults) {
       this.$data.searchResults = searchResults;
     },
-    onSearchQuery: function (query) {
-      this.makeApiCall(query)
+    onSearchQuery: function (query, pageNum) {
+      const url = query + ( pageNum ? `&page=${pageNum}` : '' );
+
+      this.makeApiCall(url)
         .then((apiResponse) => {
           const responseData = apiResponse.data;
 
@@ -99,6 +103,8 @@ export default {
           this.$data.totalEntries = responseData.total_entries;
           this.$data.currentPage = responseData.current_page;
           this.$data.perPage = responseData.per_page;
+
+          this.$data.currentQuery = query;
         })
         .catch((error)=> {
           console.error(error);
@@ -107,6 +113,9 @@ export default {
     },
     makeApiCall: function (searchUrl) {
       return axios.get(searchUrl);
+    },
+    goToPage: function(pageNum) {
+      this.onSearchQuery(this.$data.currentQuery, pageNum);
     }
   }
 };
@@ -117,5 +126,9 @@ export default {
   #searchview {
     padding: 0px;
     margin: 0px;
+  }
+
+  #search-container {
+    padding: 0vw 10vw;
   }
 </style>

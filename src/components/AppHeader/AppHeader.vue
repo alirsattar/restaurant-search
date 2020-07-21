@@ -14,8 +14,12 @@
         <!-- RIGHT SIDE -->
         <div class="col-6">
           <ul id="nav-ul" class="list-group list-group-horizontal float-right">
-            <li class="my-auto mr-3"><a><strong>My Dashboard</strong></a></li>
-            <li class="my-auto mr-3"><strong><a>Search</a></strong></li>
+            <li class="my-auto mr-4">
+              <h3><a><strong>My Dashboard</strong></a></h3>
+            </li>
+            <li class="my-auto mr-4">
+              <h3><a><strong>Search</strong></a></h3>
+            </li>
             <li class="my-auto mr-3"><i class="fas fa-bell"></i></li>
             <li class="my-auto"><img src="images/hungrytime_usericon.png" alt=""></li>
           </ul>
@@ -27,7 +31,7 @@
     <div class="row">
       <div class="col-12">
         <div id="banner-container">
-          <h6 id="message-banner" class="">Enjoy our discounts! Create an account <a href="">here</a></h6>
+          <h5 id="message-banner" class=""><strong>Enjoy our discounts! Create an account <a href="">here</a></strong></h5>
         </div>
       </div>
     </div>  

@@ -6,6 +6,7 @@
 </template>
 
 <script>
+/* eslint-disable no-unused-vars */
 const mapboxgl = require('mapbox-gl');
 
 export default {
@@ -17,17 +18,19 @@ export default {
     return {
     }
   },
+  mounted: function() {
+    this.loadDefaultPosition();
+  },
   methods: {
     placeMarkers: function (locations) {
-      console.log({locations});
-
       const mapConfig = {
+        mapCenter: [-80.1918, 25.7617],
         mapContainerDivId: 'map',
         mapboxStyleString: 'mapbox://styles/mapbox/streets-v11',
         mapboxIconName: "fast-food-15",
         accessToken: "pk.eyJ1IjoiYWxpcnNhdHRhciIsImEiOiJja2N1dHd5d3EwMGt3MnlwYmUxNHltcDAzIn0.cxS0uUsukIYZeZ_PQOdX6A",
         staticMarkerFilePath: "some_url",
-        zoomLevel: 2,
+        zoomLevel: 8,
         clustering: false,
         popupHtml: (siteInfo)=>{
           return `
@@ -135,36 +138,10 @@ export default {
             "text-anchor": "top"
           }
         });
-
-        let arrayCopy = Object.assign([], markers);
-        const markersSortedByGreatestLongitude = arrayCopy.sort((a,b)=> {
-          if (a.location[0] > b.location[0]) {
-            return 1;
-          } else if (a.location[0] < b.location[0]){
-            return -1;
-          }
-
-          return 0;
-        });
-
-        arrayCopy = Object.assign([], markers);
-        const markersSortedByGreatestLatitude = arrayCopy.sort((a,b)=> {
-          if (a.location[1] > b.location[1]) {
-            return 1;
-          } else if (a.location[1] < b.location[1]){
-            return -1;
-          }
-
-          return 0;
-        });
-
-        const highestLongitude = markersSortedByGreatestLongitude[0];
-        const highestLatitude = markersSortedByGreatestLatitude[0];
         
-        map.fitBounds([
-          [Number(highestLatitude.location[0]), Number(highestLatitude.location[1])],
-          [Number(highestLongitude.location[0]), Number(highestLongitude.location[1])],
-        ]);
+        map.jumpTo({
+          center: [ markers[0].location[0], markers[0].location[1] ]
+        });
       });
 
       // Set up click event for staff member icons
@@ -197,8 +174,39 @@ export default {
       map.on('mouseleave', 'sites', function () {
         map.getCanvas().style.cursor = '';
       });
+    },
+    loadDefaultPosition: function() {
+      const mapConfig = {
+        mapCenter: [-80.1918, 25.7617],
+        mapContainerDivId: 'map',
+        mapboxStyleString: 'mapbox://styles/mapbox/streets-v11',
+        mapboxIconName: "fast-food-15",
+        accessToken: "pk.eyJ1IjoiYWxpcnNhdHRhciIsImEiOiJja2N1dHd5d3EwMGt3MnlwYmUxNHltcDAzIn0.cxS0uUsukIYZeZ_PQOdX6A",
+        staticMarkerFilePath: "some_url",
+        zoomLevel: 8,
+        clustering: false,
+        popupHtml: (siteInfo)=>{
+          return `
+            <div class="gmap_bubble">
+              <h3>${siteInfo.name}</h3>
+              <p>
+                <a class="directions" href="${siteInfo.url}" target="_blank">
+                  Visit Site
+                </a>
+              </p>
+            </div>
+          `;
+        }
+      };
 
-      console.log({ map });
+      mapboxgl.accessToken = mapConfig.accessToken;
+
+      const map = new mapboxgl.Map({
+        container:  mapConfig.mapContainerDivId,
+        style:      mapConfig.mapboxStyleString,
+        center:     mapConfig.mapCenter,
+        zoom:       mapConfig.zoomLevel
+      });
     }
   },
   watch: {
@@ -211,7 +219,6 @@ export default {
 
 <style scoped>
 #SearchResultMap {
-  border: 1px solid;
   padding: 10px;
   margin: 0px 10px 10px 10px;
 }
@@ -219,6 +226,6 @@ export default {
 #map {
   height: 450px;
   width: 100%;
-  border: 1px solid #333;
+  border-radius: 5px;
 }
 </style>

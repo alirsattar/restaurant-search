@@ -43,7 +43,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
-  border: 1px solid;
   margin: 0px;
   padding: 0px;
   width: 100%;

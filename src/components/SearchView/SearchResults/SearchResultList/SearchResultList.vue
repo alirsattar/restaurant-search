@@ -1,20 +1,23 @@
 <template>
   <div id="searchresultlist">
-    <!-- <h1>
-      <span class="badge badge-success">SearchResultList</span>
-    </h1> -->
-
     <!-- SEARCH RESULT CARDS -->
     TOTAL RESULTS: {{ this.$props.totalResults }} | PER PAGE: {{ this.$props.perPage }} | CURRENT PAGE: {{ this.$props.currentPage }}
-    <div
-      v-for="result in this.$props.results"
-      v-bind:key="result.name">
-        <search-result-list-card
-          v-bind:theResult="result" />
+    <div id="results-cards-container">
+      <div
+        v-for="result in this.$props.results"
+        v-bind:key="result.name">
+          <search-result-list-card
+            v-bind:theResult="result" />
+      </div>
     </div>
 
     <!-- PAGINATOR -->
-    <search-result-list-paginator></search-result-list-paginator>
+    <search-result-list-paginator
+      v-if="this.$props.results.length"
+      v-bind:totalResults="this.$props.totalResults"
+      v-bind:perPage="this.$props.perPage"
+      v-bind:currentPage="this.$props.currentPage"
+      @goToPage="goToPage" />
   </div>
 </template>
 
@@ -33,14 +36,29 @@ export default {
   components: {
     SearchResultListPaginator,
     SearchResultListCard
+  },
+  methods: {
+    goToPage: function(pageNum) {
+      this.$emit('goToPage', pageNum);
+    }
   }
 };
 </script>
 
 <style scoped>
 #searchresultlist {
-  border: 1px solid;
   padding: 10px;
   margin: 0px 10px 10px 10px;
+}
+
+#results-cards-container {
+  max-height: 50vh;
+  overflow: auto;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+#results-cards-container::-webkit-scrollbar {
+  display: none;
 }
 </style>
