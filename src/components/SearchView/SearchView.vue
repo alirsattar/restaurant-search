@@ -9,6 +9,7 @@
         </div>
       </div>
 
+      <!-- RESULTS FILTERS -->
       <div class="row">
         <div class="col-12">
           <div
@@ -41,8 +42,9 @@
         </div>
       </div>
     
+      <!-- RESULT CARDS CONTAINER -->
       <div class="row">
-        <div class="col-8">
+        <div class="col-8 col-sm-12">
           <!-- SEARCH RESULT LIST CONTAINER -->
           <search-result-list
             v-bind:results="this.$data.searchResults"
@@ -52,7 +54,7 @@
             @goToPage="goToPage" />
         </div>
 
-        <div class="col-4">
+        <div class="col-4 col-sm-12">
           <!-- SEARCH RESULT MAP -->
           <search-result-map
             v-bind:locations="this.$data.searchResults" />
@@ -96,8 +98,6 @@ export default {
       this.makeApiCall(url)
         .then((apiResponse) => {
           const responseData = apiResponse.data;
-
-          console.log(responseData);
 
           this.$data.searchResults = responseData.restaurants;
           this.$data.totalEntries = responseData.total_entries;

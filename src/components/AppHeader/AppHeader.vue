@@ -4,7 +4,7 @@
       <div class="row">
 
         <!-- LEFT SIDE -->
-        <div class="col-6">
+        <div class="col-6 col-sm-12">
           <img
             id="banner"
             src="images/hungrytime_banner.jpg"
@@ -12,7 +12,7 @@
         </div>
 
         <!-- RIGHT SIDE -->
-        <div class="col-6">
+        <div class="col-6 col-sm-12">
           <ul id="nav-ul" class="list-group list-group-horizontal float-right">
             <li class="my-auto mr-4">
               <h3><a><strong>My Dashboard</strong></a></h3>
