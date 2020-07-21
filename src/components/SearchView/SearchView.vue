@@ -44,7 +44,7 @@
     
       <!-- RESULT CARDS CONTAINER -->
       <div class="row">
-        <div class="col-8 col-sm-12">
+        <div class="col-8 col-sm-12 col-md-8 col-lg-8">
           <!-- SEARCH RESULT LIST CONTAINER -->
           <search-result-list
             v-bind:results="this.$data.searchResults"
@@ -54,7 +54,7 @@
             @goToPage="goToPage" />
         </div>
 
-        <div class="col-4 col-sm-12">
+        <div class="col-4 col-sm-12 col-md-4 col-lg-4">
           <!-- SEARCH RESULT MAP -->
           <search-result-map
             v-bind:locations="this.$data.searchResults" />

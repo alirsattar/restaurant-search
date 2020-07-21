@@ -6,7 +6,7 @@
             <div class="row">
 
               <!-- NAME INPUT -->
-              <div class="col-3 col-sm-12 d-flex inputcontainer">
+              <div class="col-3 col-sm-12 col-md-3 col-lg-3 d-flex inputcontainer">
                 <i class="fas fa-home mr-2 blue"></i>
                 <input
                   type="text"
@@ -16,7 +16,7 @@
               </div>
 
               <!-- CITY INPUT -->
-              <div class="col-3 col-sm-12 d-flex inputcontainer">
+              <div class="col-3 col-sm-12 col-md-3 col-lg-3 d-flex inputcontainer">
                 <i class="fas fa-city mr-2 blue"></i>
                 <input
                   type="text"
@@ -26,7 +26,7 @@
               </div>
 
               <!-- STATE INPUT -->
-              <div class="col-3 col-sm-12 d-flex inputcontainer">
+              <div class="col-3 col-sm-12 col-md-3 col-lg-3 d-flex inputcontainer">
                 <i class="fas fa-map mr-2 blue"></i>
                 <select
                   class="select"
@@ -41,7 +41,7 @@
               </div>
 
               <!-- ZIP INPUT -->
-              <div class="col-3 col-sm-12 d-flex inputcontainer">
+              <div class="col-3 col-sm-12 col-md-3 col-lg-3 d-flex inputcontainer">
                 <i class="fas fa-map-marker-alt mr-2 blue"></i>
                 <input
                   type="text"
@@ -56,7 +56,7 @@
           </div>
 
           <!-- SEARCH BUTTON -->
-          <div class="col-2 col-sm-12">
+          <div class="col-2 col-sm-12 col-md-2 col-lg-2">
             <button
               id="searchbutton"
               type="submit"
