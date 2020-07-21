@@ -60,7 +60,7 @@
             <button
               id="searchbutton"
               type="submit"
-              class="btn btn-info ml-3"
+              class="btn btn-info ml-3 blue"
               v-on:click="onSearch($event)">
                 <i class="fas fa-search"></i> Search
             </button>
@@ -247,5 +247,10 @@
   .blue {
     color: #1090b4;
     font-size: x-large;
+  }
+
+  button.blue {
+    background-color: #1090b4;
+    color: white;
   }
 </style>

@@ -1,7 +1,8 @@
 <template>
   <div id="searchresultlist">
+    <!-- TOTAL RESULTS: {{ this.$props.totalResults }} | PER PAGE: {{ this.$props.perPage }} | CURRENT PAGE: {{ this.$props.currentPage }} -->
+    
     <!-- SEARCH RESULT CARDS -->
-    TOTAL RESULTS: {{ this.$props.totalResults }} | PER PAGE: {{ this.$props.perPage }} | CURRENT PAGE: {{ this.$props.currentPage }}
     <div id="results-cards-container">
       <div
         v-for="result in this.$props.results"
@@ -47,8 +48,8 @@ export default {
 
 <style scoped>
 #searchresultlist {
-  padding: 10px;
-  margin: 0px 10px 10px 10px;
+  /* padding: 10px; */
+  /* margin: 0px 10px 10px 10px; */
 }
 
 #results-cards-container {

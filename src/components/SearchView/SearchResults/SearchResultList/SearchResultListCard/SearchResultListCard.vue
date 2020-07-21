@@ -1,25 +1,47 @@
 <template>
   <div class="searchresultlistcard col-12">
     <div class="row">
-      <div class="col-5">
+
+      <!-- RIGHT SIDE -->
+      <div class="col-6">
         <div class="row">
-          <div class="col-4">
+
+          <!-- IMAGE CONTAINER -->
+          <div class="col-2">
             <img class="restaurant-image img-fluid" src="images/hungrytime_icon.jpg" alt="">
           </div>
-          <div class="col-8">
-            {{ theResult.name }}
-            <br>Distance: | {{ theResult.address }}
-            <br>Price: {{ theResult.price }}
+
+          <!-- RESTAURANT INFO -->
+          <div class="col-10">
+            <h4 class="text"><strong>{{ theResult.name }}</strong></h4>
+            <h6 class="brown"><strong>Restaurant Type</strong></h6>
+            <h5><i class="fas fa-map-marker-alt highlighted"></i> <span class="text">0.68 mi | {{ theResult.address }}</span></h5>
+            <template
+              v-for="index in 5">
+                <h3
+                  class="dollarsign mr-2"
+                  v-bind:key="index">
+                  <i
+                  :class="{highlighted: isHighlighted(index)}"
+                  class="fas fa-dollar-sign"></i>
+                </h3>
+            </template>
+            {{ theResult.price }}
           </div>
         </div>
       </div>
-      <div class="col-2">
+
+      <!-- MIDDLE -->
+      <div class="col-3">
+        <img src="images/hungrytime_stars.png" alt="">
       </div>
+
+      <!-- RIGHT SIDE -->
       <div
         id="actions"
-        class="col-5 ">
-          <span class="">Make a Reservation</span>
-          <br><button class="reservation-button btn btn-info "> {{ formatPhone(theResult.phone) }}</button>
+        class="col-3">
+          <h5 class="text">Make a Reservation</h5>
+          <button class="reservation-button btn btn-info blue"><i class="fas fa-phone-alt mr-2"></i>{{ formatPhone(theResult.phone) }}</button>
           <br><a :href="theResult.reserve_url" target="_blank">See website</a> | <i class="fa fa-heart"></i> Save
       </div>
     </div>
@@ -43,21 +65,29 @@ export default {
         return '(' + match[1] + ') ' + match[2] + '-' + match[3]
       }
       return null;
+    },
+    isHighlighted: function(index) {
+      return (index <= this.$props.theResult.price ? true : false);
     }
   }
 };
 </script>
 
-<style>
+<style scoped>
   .searchresultlistcard {
+    min-height: fit-content;
     max-width: -webkit-fill-available;
-    border: 1px solid;
-    padding: 10px;
-    margin: 0px 10px 10px 10px;
+    background-color: white;
+    margin-bottom: 20px;
+    padding: 20px;
+    margin: 5px 10px 10px 10px;
+    border-radius: 5px;
+    box-shadow: 0px 1px 5px #888888;
   }
 
   .restaurant-image {
-    min-width: 100%;
+    /* min-width: 100%; */
+    /* max-height: 50%; */
   }
 
   .reservation-button {
@@ -66,5 +96,36 @@ export default {
 
   #actions {
     text-align: center;
+  }
+
+  .text {
+    color: #5c5c5c;
+  }
+
+  h4.text {
+    margin-bottom: 0px;
+  }
+
+  h5.text {
+    /* margin-bottom: 0px; */
+  }
+
+  .brown {
+    color: #8b572a;
+    margin-top: 0px;
+  }
+
+  .blue {
+    background-color: #0d8fb3;
+    color: white;
+  }
+
+  .highlighted {
+    color: #eb9507;
+  }
+
+  .dollarsign {
+    display: inline;
+    font-weight: lighter;
   }
 </style>

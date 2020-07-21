@@ -219,8 +219,6 @@ export default {
 
 <style scoped>
 #SearchResultMap {
-  padding: 10px;
-  margin: 0px 10px 10px 10px;
 }
 
 #map {
