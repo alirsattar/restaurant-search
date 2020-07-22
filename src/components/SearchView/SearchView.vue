@@ -13,34 +13,93 @@
 
       <!-- SORRY, DID NOT HAVE TIME TO COME BACK AND STYLE THESE PROPERLY ! -->
       <div class="row">
-        <div class="col-12">
-          <div
-            id="resultfilters"
-            class="">
-            <select id="rating">
-              <option value="rating" disabled selected>Rating</option>
-            </select>
-            <select id="price">
-              <option value="" disabled selected>Price</option>
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-            </select>
-            <select id="distance">
-              <option value="" disabled selected>Distance</option>
-              <option value="10">10 miles</option>
-              <option value="25">20 miles</option>
-              <option value="50">50 miles</option>
-            </select>
+
+        <div class="col-lg-4">
+
+          <div class="row">
+
+            <!-- RATING DROPDOWN -->
+            <div class="col-lg-3">
+              <div class="dropdown">
+                <button
+                  class="btn btn-light dropdown-toggle filter-dropdown"
+                  type="button"
+                  id="ratingdropdown"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false">
+                    Rating
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                  <button class="dropdown-item" type="button">(No rating info coming from API, sorry!)</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- PRICE DROPDOWN -->
+            <div class="col-lg-3">
+              <div class="dropdown">
+                <button
+                  class="btn btn-light dropdown-toggle filter-dropdown"
+                  type="button"
+                  id="pricedropdown"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false">
+                    Price
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                  <button class="dropdown-item" type="button">
+                    <i class="fas fa-dollar-sign"></i>
+                  </button>
+                  <button class="dropdown-item" type="button">
+                    <i class="fas fa-dollar-sign"></i>
+                    <i class="fas fa-dollar-sign"></i>
+                  </button>
+                  <button class="dropdown-item" type="button">
+                    <i class="fas fa-dollar-sign"></i>
+                    <i class="fas fa-dollar-sign"></i>
+                    <i class="fas fa-dollar-sign"></i>
+                  </button>
+                  <button class="dropdown-item" type="button">
+                    <i class="fas fa-dollar-sign"></i>
+                    <i class="fas fa-dollar-sign"></i>
+                    <i class="fas fa-dollar-sign"></i>
+                    <i class="fas fa-dollar-sign"></i>
+                  </button>
+                  <button class="dropdown-item" type="button">
+                    <i class="fas fa-dollar-sign"></i>
+                    <i class="fas fa-dollar-sign"></i>
+                    <i class="fas fa-dollar-sign"></i>
+                    <i class="fas fa-dollar-sign"></i>
+                    <i class="fas fa-dollar-sign"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- DISTANCE DROPDOWN -->
+            <div class="col-lg-3">
+              <div class="dropdown">
+                <button
+                  class="btn btn-light dropdown-toggle filter-dropdown"
+                  type="button"
+                  id="distancedropdown"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false">
+                    Distance
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                  <button class="dropdown-item" type="button">10 miles</button>
+                  <button class="dropdown-item" type="button">20 miles</button>
+                  <button class="dropdown-item" type="button">50 miles</button>
+                </div>
+              </div>
+            </div>
+
           </div>
 
-          <div
-            id="resultcount"
-            class="float-right"
-            v-show="this.$data.totalEntries">
-              <h5>{{ this.$data.totalEntries }} Results</h5>
-          </div>
         </div>
       </div>
     
@@ -138,5 +197,10 @@ export default {
 
   #search-container {
     padding: 0vw 10vw;
+  }
+
+  .filter-dropdown {
+    background-color: white;
+    border: 2px #0d8fb3 solid;
   }
 </style>

@@ -2,70 +2,69 @@
   <form id="formcontainer">
     <div id="searchinputbox">
       <div id="inputfieldscontainer" class="row d-flex">
-          <div class="col-sm-12 col-md-10 col-lg-9">
-            <div class="row">
+        <div class="col-sm-12 col-md-10 col-lg-10 d-flex">
+          <div class="row">
 
-              <!-- NAME INPUT -->
-              <div class="col-sm-12 col-md-4 col-lg-3 d-flex inputcontainer">
-                <i class="fas fa-home mr-2 blue"></i>
-                <input
-                  type="text"
-                  id="name"
-                  placeholder="Restaurant Name"
-                  v-model="searchTypes.name.queryString" />
-              </div>
+            <!-- NAME INPUT -->
+            <div class="col-sm-12 col-md-3 col-lg-3 d-flex inputcontainer">
+              <i class="fas fa-home mr-2 blue"></i>
+              <input
+                type="text"
+                id="name"
+                placeholder="Restaurant Name"
+                v-model="searchTypes.name.queryString" />
+            </div>
 
-              <!-- CITY INPUT -->
-              <div class="col-sm-12 col-md-4 col-lg-3 d-flex inputcontainer">
-                <i class="fas fa-city mr-2 blue"></i>
-                <input
-                  type="text"
-                  id="city"
-                  placeholder="City"
-                  v-model="searchTypes.city.queryString" />
-              </div>
+            <!-- CITY INPUT -->
+            <div class="col-sm-12 col-md-3 col-lg-3 d-flex inputcontainer">
+              <i class="fas fa-city mr-2 blue"></i>
+              <input
+                type="text"
+                id="city"
+                placeholder="City"
+                v-model="searchTypes.city.queryString" />
+            </div>
 
-              <!-- STATE INPUT -->
-              <div class="col-sm-12 col-md-4 col-lg-3 d-flex inputcontainer">
-                <i class="fas fa-map mr-2 blue"></i>
-                <select
-                  class="select"
-                  id="state"
-                  placeholder="State"
-                  v-model="searchTypes.state.queryString">
-                    <option
-                      v-for="(code, state) in usStates"
-                      v-bind:key="state"
-                      :value="state">{{ code }}</option>
-                </select>
-              </div>
+            <!-- STATE INPUT -->
+            <div class="col-sm-12 col-md-3 col-lg-3 d-flex inputcontainer">
+              <i class="fas fa-map mr-2 blue"></i>
+              <select
+                class="select"
+                id="state"
+                placeholder="State"
+                v-model="searchTypes.state.queryString">
+                  <option
+                    v-for="(code, state) in usStates"
+                    v-bind:key="state"
+                    :value="state">{{ code }}</option>
+              </select>
+            </div>
 
-              <!-- ZIP INPUT -->
-              <div class="col-sm-12 col-md-4 col-lg-3 d-flex inputcontainer">
-                <i class="fas fa-map-marker-alt mr-2 blue"></i>
-                <input
-                  type="text"
-                  id="zip"
-                  class=""
-                  maxlength="5"
-                  placeholder="Zip Code"
-                  pattern="[0-9]*"
-                  v-model="searchTypes.zip.queryString" />
-              </div>
+            <!-- ZIP INPUT -->
+            <div class="col-sm-12 col-md-3 col-lg-3 d-flex inputcontainer">
+              <i class="fas fa-map-marker-alt mr-2 blue"></i>
+              <input
+                type="text"
+                id="zip"
+                class=""
+                maxlength="5"
+                placeholder="Zip Code"
+                pattern="[0-9]*"
+                v-model="searchTypes.zip.queryString" />
             </div>
           </div>
+        </div>
 
-          <!-- SEARCH BUTTON -->
-          <div class="col-sm-12 col-md-2 col-lg-3">
-            <button
-              id="searchbutton"
-              type="submit"
-              class="btn btn-info ml-3 blue"
-              v-on:click="onSearch($event)">
-                <i class="fas fa-search"></i> Search
-            </button>
-          </div>
-          <br><small id="error">{{ this.$data.errorMessage }}</small>
+        <!-- SEARCH BUTTON -->
+        <div class="col-sm-12 col-md-2 col-lg-2 no-pad-right">
+          <button
+            id="searchbutton"
+            type="submit"
+            class="btn btn-info blue"
+            v-on:click="onSearch($event)">
+              <i class="fas fa-search"></i> Search
+          </button>
+        </div>
       </div>
     </div>
   </form>
@@ -252,5 +251,9 @@
   button.blue {
     background-color: #1090b4;
     color: white;
+  }
+
+  .no-pad-right {
+    padding-right: 0px;
   }
 </style>
