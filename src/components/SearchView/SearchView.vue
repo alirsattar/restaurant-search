@@ -15,6 +15,7 @@
       <div class="row">
         <div class="col-sm-12 col-lg-4">
           <div
+            v-show="this.$data.totalEntries"
             id="searchfilters"
             class="row">
 

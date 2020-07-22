@@ -45,11 +45,14 @@
 </script>
 
 <style scoped>
-  #results-cards-container {
-    max-height: 50vh;
-    overflow: auto;
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
+  @media screen and (min-width: 500px){
+    #results-cards-container {
+      height: 55vh;
+      min-height: 400px;
+      overflow: auto;
+      -ms-overflow-style: none;  /* IE and Edge */
+      scrollbar-width: none;  /* Firefox */
+    }
   }
 
   #results-cards-container::-webkit-scrollbar {

@@ -2,11 +2,11 @@
   <form id="formcontainer">
     <div id="searchinputbox">
       <div id="inputfieldscontainer" class="row d-flex">
-        <div class="col-sm-12 col-md-10 col-lg-10 d-flex">
+        <div class="col-sm-12 col-md-10 col-lg-10">
           <div class="row">
 
             <!-- NAME INPUT -->
-            <div class="col-sm-12 col-md-3 col-lg-3 d-flex inputcontainer">
+            <div class="col-sm-12 col-md-3 col-lg-3 col-xl-3 d-flex inputcontainer">
               <i class="fas fa-home mr-2 blue"></i>
               <input
                 type="text"
@@ -16,7 +16,7 @@
             </div>
 
             <!-- CITY INPUT -->
-            <div class="col-sm-12 col-md-3 col-lg-3 d-flex inputcontainer">
+            <div class="col-sm-12 col-md-3 col-lg-3 col-xl-3 d-flex inputcontainer">
               <i class="fas fa-city mr-2 blue"></i>
               <input
                 type="text"
@@ -26,7 +26,7 @@
             </div>
 
             <!-- STATE INPUT -->
-            <div class="col-sm-12 col-md-3 col-lg-3 d-flex inputcontainer">
+            <div class="col-sm-12 col-md-3 col-lg-3 col-xl-3 d-flex inputcontainer">
               <i class="fas fa-map mr-2 blue"></i>
               <select
                 class="select"
@@ -41,7 +41,7 @@
             </div>
 
             <!-- ZIP INPUT -->
-            <div class="col-sm-12 col-md-3 col-lg-3 d-flex inputcontainer">
+            <div class="col-sm-12 col-md-3 col-lg-3 col-xl-3 d-flex inputcontainer">
               <i class="fas fa-map-marker-alt mr-2 blue"></i>
               <input
                 type="text"

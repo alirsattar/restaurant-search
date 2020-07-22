@@ -216,7 +216,8 @@
 
 <style scoped>
   #map {
-    height: 450px;
+    height: 55vh;
+    min-height: 400px;
     width: 100%;
     border-radius: 5px;
   }
