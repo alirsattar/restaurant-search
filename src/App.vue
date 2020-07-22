@@ -1,13 +1,13 @@
 <template>
   <div id="app" >
     <!-- OVERALL PAGE CONTAINER -->
-    <div id="app-container" class="container-fluid">
+    <!-- <div id="app-container" class="container-fluid"> -->
       <!-- GENERAL APP HEADER -->
       <app-header />
 
       <!-- SEARCH VIEW -->
       <search-view />
-    </div>
+    <!-- </div> -->
   </div>
 </template>
 

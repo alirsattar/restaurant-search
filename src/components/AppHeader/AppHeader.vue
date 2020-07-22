@@ -1,7 +1,9 @@
 <template>
-  <div id="appheader">
+  <!-- <div id="appheader"> -->
     <div id="header-container" class="container-fluid">
-      <div class="row">
+      
+      <!-- NAV ROW -->
+      <div id="nav-row" class="row">
 
         <!-- LEFT SIDE -->
         <div class="col-sm-12 col-md-6 col-lg-6">
@@ -25,17 +27,18 @@
           </ul>
         </div>
       </div>
-    </div>
 
-    <!-- MESSAGE BANNER -->
-    <div class="row">
-      <div class="col-12">
-        <div id="banner-container">
-          <h5 id="message-banner" class=""><strong>Enjoy our discounts! Create an account <a href="">here</a></strong></h5>
+      <!-- MESSAGE BANNER -->
+      <div class="row">
+        <div id="banner-row" class="col-12">
+          <div id="banner-container">
+            <h5 id="message-banner" class=""><strong>Enjoy our discounts! Create an account <a href="">here</a></strong></h5>
+          </div>
         </div>
       </div>
-    </div>  
-  </div>
+    </div>
+
+  <!-- </div> -->
 </template>
 
 <script>
@@ -63,11 +66,19 @@
   }
 
   #header-container {
-    padding: 0vw 5vw;
+    background-color: #ffffff;
+  }
+
+  #nav-row {
+    padding: 0px 5vw;
   }
 
   #banner {
     max-height: 5rem;
+  }
+
+  #banner-row {
+    padding: 0px;
   }
 
   #banner-container {
