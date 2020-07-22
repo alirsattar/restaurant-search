@@ -13,7 +13,7 @@
 
         <!-- RIGHT SIDE -->
         <div class="col-sm-12 col-md-6 col-lg-6">
-          <ul id="nav-ul" class="list-group list-group-horizontal float-right">
+          <ul id="nav-ul" class="list-group list-group-horizontal float-right row">
             <li class="my-auto mr-4">
               <h3><a><strong>My Dashboard</strong></a></h3>
             </li>
