@@ -27,8 +27,38 @@
                 v-model="searchTypes.city.queryString" />
             </div>
 
-            <!-- STATE INPUT -->
+            <!-- BOOTSTRAP STATE SELECT DROPDOWN -->
             <div class="col-sm-12 col-md-3 col-lg-3 col-xl-3 d-flex inputcontainer">
+              <div class="dropdown">
+                <button
+                  class="btn btn-light dropdown-toggle"
+                  type="button"
+                  id="state-dropdown"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false">
+                    <i class="fas fa-map mr-2 blue"></i>
+                    <div id="state-label-container">
+                      <span id="dropdown-label">State</span>
+                    </div>
+                </button>
+                <div
+                  class="dropdown-menu scrollable-menu"
+                  aria-labelledby="dropdownMenuButton">
+                  <a
+                    v-for="(stateName, stateCode) in usStates"
+                    class="dropdown-item"
+                    v-bind:key="stateCode"
+                    :value="stateCode"
+                    @click="selectState(stateCode)">
+                      {{ stateName }}
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- STATE INPUT -->
+            <!-- <div class="col-sm-12 col-md-3 col-lg-3 col-xl-3 d-flex inputcontainer">
               <i class="fas fa-map mr-2 blue"></i>
               <select
                 class="select"
@@ -40,7 +70,7 @@
                     v-bind:key="state"
                     :value="state">{{ code }}</option>
               </select>
-            </div>
+            </div> -->
 
             <!-- ZIP INPUT -->
             <div class="col-sm-12 col-md-3 col-lg-3 col-xl-3 d-flex inputcontainer">
@@ -75,7 +105,6 @@
 <script>
   export default {
     name: "SearchInputBox",
-    props: {},
     data: () => {
       return {
         searchApiBaseUrl: "https://opentable.herokuapp.com/api/restaurants",
@@ -105,7 +134,6 @@
         errorMessage: '',
         resultCount: 0,
         usStates: {
-          "": "State",
           "AL": "Alabama",
           "AK": "Alaska",
           "AZ": "Arizona",
@@ -165,6 +193,11 @@
         buttonEvent.preventDefault();
 
         const whichField = this.whichInputFieldToUse();
+
+        if (!whichField) {
+          return;
+        }
+
         const urlWithQuery = this.buildFinalQueryUrl(whichField);
 
         this.$emit('gotSearchQuery', urlWithQuery);
@@ -172,10 +205,13 @@
       clearOtherInputFields: function(focusEvent) {
         focusEvent.preventDefault();
       },
+      /**
+       * @returns {('name' | 'city' | 'state' | 'zip')}
+       */
       whichInputFieldToUse: function() {
         let whichField;
         
-        const allInputFields = document.getElementById('searchinputbox').querySelectorAll('input, select');
+        const allInputFields = document.getElementById('searchinputbox').querySelectorAll('input');
         let fieldsWithInput = [];
 
         allInputFields.forEach((field)=> {
@@ -185,8 +221,13 @@
         });
 
         if (fieldsWithInput.length) {
+
           // Just take the first field with input, if multiple fields have been filled in
           whichField = fieldsWithInput[0];
+        } else {
+          if (this.$data.searchTypes.state.queryString.length) {
+            whichField = 'state';
+          }
         }
 
         return whichField;
@@ -199,6 +240,11 @@
         const finalUrl = baseUrl + queryParam + searchString;
 
         return finalUrl;
+      },
+      selectState: function(stateCode) {
+        console.log('setting state to: ', stateCode);
+
+        this.$data.searchTypes.state.queryString = stateCode;
       }
     }
   };
@@ -235,12 +281,16 @@
     color: red;
   }
 
-  input, select {
+  input {
     border: none;
     border-bottom: 1px solid #e6e6e6;
     width: -webkit-fill-available;
     font-size: large;
     font-weight: 600;
+  }
+
+  input:focus, button:focus, .dropdown:focus {
+    outline: none;
   }
 
   .searchbutton-container {
@@ -267,5 +317,42 @@
 
   .no-pad-right {
     padding-right: 0px;
+  }
+
+  #state-dropdown {
+    background-color: white;
+    border: none;
+  }
+
+  .scrollable-menu {
+    width: -webkit-fill-available;
+    height: auto;
+    max-height: 200px;
+    overflow-x: hidden;
+    border-radius: 5px;
+  }
+
+  #state-label-container {
+    width: -webkit-fill-available;
+    border: none;
+    border-bottom: 1px solid #e6e6e6;
+  }
+
+  #dropdown-label {
+    float: left;
+    border: none;
+    color: #75797e;
+    font-size: large;
+    font-weight: 600;
+  }
+
+  .dropdown {
+    width: -webkit-fill-available;
+  }
+
+  .dropdown-toggle {
+    width: -webkit-fill-available;
+    display: flex;
+    align-items: center;
   }
 </style>
