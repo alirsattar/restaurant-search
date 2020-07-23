@@ -12,19 +12,26 @@
           class="float-left">
       </div>
 
-      <!-- RIGHT SIDE -->
       <div class="col-sm-12 col-md-6 col-lg-6">
-        <ul id="nav-ul" class="list-group list-group-horizontal float-right row">
-          <li class="my-auto mr-4">
-            <h3><a><strong>My Dashboard</strong></a></h3>
-          </li>
-          <li class="my-auto mr-4">
-            <h3><a><strong>Search</strong></a></h3>
-          </li>
-          <li class="my-auto mr-3"><i class="fas fa-bell"></i></li>
-          <li class="my-auto"><img src="images/hungrytime_usericon.png" alt=""></li>
-        </ul>
+
+        <nav class="navbar navbar-expand-md navbar-light bg-white responsive-float">
+
+          <div class="" id="navbarSupportedContent">
+            <ul class="navbar-nav">
+              <li class="my-auto mr-4">
+                <h3><a><strong>My Dashboard</strong></a></h3>
+              </li>
+              <li class="my-auto mr-4">
+                <h3><a><strong>Search</strong></a></h3>
+              </li>
+              <li class="my-auto mr-3"><i class="fas fa-bell"></i></li>
+              <li class="my-auto"><img src="images/hungrytime_usericon.png" alt=""></li>
+            </ul>
+          </div>
+        </nav>
+
       </div>
+
     </div>
 
     <!-- MESSAGE BANNER -->
@@ -54,6 +61,20 @@
   @media screen and (min-width: 768px){
     #disappearing-margin {
       margin-bottom: 3em;
+    }
+
+    .responsive-float {
+      float: right;
+    }
+    
+    h3 {
+      font-size: 1.25rem;
+    }
+  }
+
+  @media screen and (min-width: 1000px){
+    h3 {
+      font-size: 2rem;
     }
   }
 
