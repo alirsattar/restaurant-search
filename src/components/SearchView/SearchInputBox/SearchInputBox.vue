@@ -1,5 +1,5 @@
 <template>
-  <div id="searchinputbox" class="mt-5">
+  <div id="searchinputbox" class="mt-5 mb-5">
     <form id="formcontainer">
       <div id="inputfieldscontainer" class="row d-flex">
 
@@ -241,8 +241,6 @@
         return finalUrl;
       },
       selectState: function(stateCode) {
-        console.log('setting state to: ', stateCode);
-
         this.$data.searchTypes.state.queryString = stateCode;
       }
     }
