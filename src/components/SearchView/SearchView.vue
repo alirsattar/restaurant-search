@@ -1,9 +1,10 @@
 <template>
-  <div id="searchview">
-    <div id="search-container" class="container-fluid">
-      <div class="row">
-        <!-- SEARCH INPUT BOX -->
-        <div class="col-12 pr-0">
+  <div id="searchview" class="container-fluid">
+    <div id="search-container">
+      
+      <!-- SEARCH INPUT BOX -->
+      <div id="searchbox-input-container" class="row">
+        <div class="col-12">
           <search-input-box
             @gotSearchQuery="onSearchQuery" />
         </div>
@@ -11,7 +12,6 @@
 
       <!-- RESULTS FILTERS -->
 
-      <!-- SORRY, DID NOT HAVE TIME TO COME BACK AND STYLE THESE PROPERLY ! -->
       <div class="row">
         <div class="col-sm-12 col-lg-4">
           <div
@@ -207,8 +207,8 @@ export default {
 
 <style scoped>
   #searchview {
-    padding: 0px;
-    margin: 0px;
+    /* padding: 0px;
+    margin: 0px; */
   }
 
   #search-container {

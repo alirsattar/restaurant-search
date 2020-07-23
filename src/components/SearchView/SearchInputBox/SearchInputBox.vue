@@ -1,8 +1,10 @@
 <template>
-  <form id="formcontainer">
-    <div id="searchinputbox">
+  <div id="searchinputbox" class="mt-5">
+    <form id="formcontainer">
       <div id="inputfieldscontainer" class="row d-flex">
-        <div class="col-sm-12 col-md-10 col-lg-10">
+
+        <!-- SEARCH FIELDS OUTER CONTAINER -->
+        <div class="col-sm-12 col-md-10 col-lg-11">
           <div class="row">
 
             <!-- NAME INPUT -->
@@ -56,7 +58,7 @@
         </div>
 
         <!-- SEARCH BUTTON -->
-        <div class="col-sm-12 col-md-2 col-lg-2 no-pad-right">
+        <div class="col-sm-12 col-md-2 col-lg-1 searchbutton-container">
           <button
             id="searchbutton"
             type="submit"
@@ -66,8 +68,8 @@
           </button>
         </div>
       </div>
-    </div>
-  </form>
+    </form>
+  </div>
 </template>
 
 <script>
@@ -203,9 +205,17 @@
 </script>
 
 <style scoped>
-  #searchinputbox {
-    padding: 10px;
-    margin: 10vh 10px 10px 10px;
+  @media screen and (max-width: 767px) {
+    #searchbutton {
+      border-radius: 2px;
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    #searchbutton {
+      border-top-left-radius: 0px;
+      border-bottom-left-radius: 0px;
+    }
   }
 
   #inputfieldscontainer {
@@ -213,7 +223,7 @@
     background-color: white;
     align-items: center;
     box-shadow: 0px 1px 5px #888888;
-    height: fit-content;
+    min-height: fit-content;
   }
 
   .inputcontainer {
@@ -233,12 +243,14 @@
     font-weight: 600;
   }
 
+  .searchbutton-container {
+    height: 3em;
+    padding: 0;
+  }
+
   #searchbutton {
     width: 100%;
     height: inherit;
-    border-radius: 2px;
-    border-top-left-radius: 0px;
-    border-bottom-left-radius: 0px;
     font-size: large;
     font-weight: 600;
   }

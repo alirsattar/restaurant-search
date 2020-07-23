@@ -1,44 +1,41 @@
 <template>
-  <!-- <div id="appheader"> -->
-    <div id="header-container" class="container-fluid">
-      
-      <!-- NAV ROW -->
-      <div id="nav-row" class="row">
+  <div id="header-container" class="container-fluid">
+    
+    <!-- NAV ROW -->
+    <div id="nav-row" class="row">
 
-        <!-- LEFT SIDE -->
-        <div class="col-sm-12 col-md-6 col-lg-6">
-          <img
-            id="banner"
-            src="images/hungrytime_banner.jpg"
-            class="float-left">
-        </div>
-
-        <!-- RIGHT SIDE -->
-        <div class="col-sm-12 col-md-6 col-lg-6">
-          <ul id="nav-ul" class="list-group list-group-horizontal float-right row">
-            <li class="my-auto mr-4">
-              <h3><a><strong>My Dashboard</strong></a></h3>
-            </li>
-            <li class="my-auto mr-4">
-              <h3><a><strong>Search</strong></a></h3>
-            </li>
-            <li class="my-auto mr-3"><i class="fas fa-bell"></i></li>
-            <li class="my-auto"><img src="images/hungrytime_usericon.png" alt=""></li>
-          </ul>
-        </div>
+      <!-- LEFT SIDE -->
+      <div class="col-sm-12 col-md-6 col-lg-6">
+        <img
+          id="banner"
+          src="images/hungrytime_banner.jpg"
+          class="float-left">
       </div>
 
-      <!-- MESSAGE BANNER -->
-      <div class="row">
-        <div id="banner-row" class="col-12">
-          <div id="banner-container">
-            <h5 id="message-banner" class=""><strong>Enjoy our discounts! Create an account <a href="">here</a></strong></h5>
-          </div>
-        </div>
+      <!-- RIGHT SIDE -->
+      <div class="col-sm-12 col-md-6 col-lg-6">
+        <ul id="nav-ul" class="list-group list-group-horizontal float-right row">
+          <li class="my-auto mr-4">
+            <h3><a><strong>My Dashboard</strong></a></h3>
+          </li>
+          <li class="my-auto mr-4">
+            <h3><a><strong>Search</strong></a></h3>
+          </li>
+          <li class="my-auto mr-3"><i class="fas fa-bell"></i></li>
+          <li class="my-auto"><img src="images/hungrytime_usericon.png" alt=""></li>
+        </ul>
       </div>
     </div>
 
-  <!-- </div> -->
+    <!-- MESSAGE BANNER -->
+    <div id="disappearing-margin" class="row">
+      <div id="banner-row" class="col-12">
+        <div id="banner-container">
+          <h5 id="message-banner" class=""><strong>Enjoy our discounts! Create an account <a href="">here</a></strong></h5>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -48,6 +45,18 @@
 </script>
 
 <style scoped>
+  @media screen and (max-width: 767px){
+    #disappearing-margin {
+      margin-bottom: 0em;
+    }
+  }
+
+  @media screen and (min-width: 768px){
+    #disappearing-margin {
+      margin-bottom: 3em;
+    }
+  }
+
   #appheader {
     padding: 0px;
     margin: 0px;
