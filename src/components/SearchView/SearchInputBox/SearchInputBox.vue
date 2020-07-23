@@ -284,7 +284,7 @@
 
   input {
     border: none;
-    border-bottom: 1px solid #e6e6e6;
+    /* border-bottom: 1px solid #e6e6e6; */
     width: -webkit-fill-available;
     font-size: large;
     font-weight: 600;
@@ -373,5 +373,7 @@
 
   .input-container {
     justify-self: left;
+    border: none;
+    border-bottom: 1px solid #e6e6e6;
   }
 </style>
