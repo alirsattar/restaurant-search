@@ -9,35 +9,45 @@
 
             <!-- NAME INPUT -->
             <div class="col-sm-12 col-md-3 col-lg-3 col-xl-3 d-flex inputcontainer">
-              <i class="fas fa-home mr-2 blue"></i>
-              <input
-                type="text"
-                id="name"
-                placeholder="Restaurant Name"
-                v-model="searchTypes.name.queryString" />
+              <div class="icon-container">
+                <i class="fas fa-home blue"></i>
+              </div>
+              <div class="input-container">
+                <input
+                  type="text"
+                  id="name"
+                  placeholder="Restaurant Name"
+                  v-model="searchTypes.name.queryString" />
+              </div>
             </div>
 
             <!-- CITY INPUT -->
             <div class="col-sm-12 col-md-3 col-lg-3 col-xl-3 d-flex inputcontainer">
-              <i class="fas fa-city mr-2 blue"></i>
-              <input
-                type="text"
-                id="city"
-                placeholder="City"
-                v-model="searchTypes.city.queryString" />
+              <div class="icon-container">
+                <i class="fas fa-city blue"></i>
+              </div>
+              <div class="input-container">
+                <input
+                  type="text"
+                  id="city"
+                  placeholder="City"
+                  v-model="searchTypes.city.queryString" />
+              </div>
             </div>
 
-            <!-- BOOTSTRAP STATE SELECT DROPDOWN -->
+            <!-- STATE DROPDOWN -->
             <div class="col-sm-12 col-md-3 col-lg-3 col-xl-3 d-flex inputcontainer">
               <div class="dropdown">
                 <button
-                  class="btn btn-light dropdown-toggle"
+                  class="btn btn-light dropdown-toggle px-0"
                   type="button"
                   id="state-dropdown"
                   data-toggle="dropdown"
                   aria-haspopup="true"
                   aria-expanded="false">
-                    <i class="fas fa-map mr-2 blue"></i>
+                    <div class="icon-container">
+                      <i class="fas fa-map blue"></i>
+                    </div>
                     <div id="state-label-container">
                       <span id="dropdown-label">State</span>
                     </div>
@@ -57,32 +67,21 @@
               </div>
             </div>
 
-            <!-- STATE INPUT -->
-            <!-- <div class="col-sm-12 col-md-3 col-lg-3 col-xl-3 d-flex inputcontainer">
-              <i class="fas fa-map mr-2 blue"></i>
-              <select
-                class="select"
-                id="state"
-                placeholder="State"
-                v-model="searchTypes.state.queryString">
-                  <option
-                    v-for="(code, state) in usStates"
-                    v-bind:key="state"
-                    :value="state">{{ code }}</option>
-              </select>
-            </div> -->
-
             <!-- ZIP INPUT -->
             <div class="col-sm-12 col-md-3 col-lg-3 col-xl-3 d-flex inputcontainer">
-              <i class="fas fa-map-marker-alt mr-2 blue"></i>
-              <input
-                type="text"
-                id="zip"
-                class=""
-                maxlength="5"
-                placeholder="Zip Code"
-                pattern="[0-9]*"
-                v-model="searchTypes.zip.queryString" />
+              <div class="icon-container">
+                <i class="fas fa-map-marker-alt blue"></i>
+              </div>
+              <div class="input-container">
+                <input
+                  type="text"
+                  id="zip"
+                  class=""
+                  maxlength="5"
+                  placeholder="Zip Code"
+                  pattern="[0-9]*"
+                  v-model="searchTypes.zip.queryString" />
+              </div>
             </div>
           </div>
         </div>
@@ -254,6 +253,8 @@
   @media screen and (max-width: 767px) {
     #searchbutton {
       border-radius: 2px;
+      border-top-left-radius: 0px;
+      border-top-right-radius: 0px;
     }
   }
 
@@ -287,6 +288,7 @@
     width: -webkit-fill-available;
     font-size: large;
     font-weight: 600;
+    background-color: 0 0 0 0;
   }
 
   input:focus, button:focus, .dropdown:focus {
@@ -336,6 +338,7 @@
     width: -webkit-fill-available;
     border: none;
     border-bottom: 1px solid #e6e6e6;
+    padding-left: 2px;
   }
 
   #dropdown-label {
@@ -346,7 +349,7 @@
     font-weight: 600;
   }
 
-  .dropdown {
+  .dropdown, .input-container {
     width: -webkit-fill-available;
   }
 
@@ -354,5 +357,21 @@
     width: -webkit-fill-available;
     display: flex;
     align-items: center;
+  }
+
+  .icon-container {
+    width: 15%;
+    min-width: 40px;
+    display: flex;
+    justify-content: center;
+    justify-self: left;
+  }
+
+  i {
+    justify-self: left;
+  }
+
+  .input-container {
+    justify-self: left;
   }
 </style>
